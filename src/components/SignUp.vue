@@ -13,24 +13,24 @@ export default {
             password: ''
         }
     },
-    methods:{
+    methods: {
         async signUp() {
-            const register = await axios.post('http://localhost:3000/users',{
-                name:this.name,
-                email:this.email,
-                password:this.password
+            const register = await axios.post('http://localhost:3000/users', {
+                name: this.name,
+                email: this.email,
+                password: this.password
             });
             console.log(register.data);
-            if(register.status == 201){
+            if (register.status == 201) {
                 localStorage.setItem('user-info', JSON.stringify(register.data));
-                this.$router.push({name:'HomePage'})
+                this.$router.push({ name: 'HomePage' })
             }
-        },
-        mounted(){
-            let user = localStorage.getItem('user-info');
-            if(user){
-                this.$router.push({name:'HomePage'});
-            }
+        }
+    },
+    mounted() {
+        let user = localStorage.getItem('user-info');
+        if (user) {
+            this.$router.push({ name: 'HomePage' });
         }
     }
 }
@@ -45,7 +45,7 @@ export default {
         <input type="password" placeholder="Enter Password" v-model="password">
         <button v-on:click="signUp()">Sign Up</button>
         <p>
-            <router-link to="/login">Sign Up</router-link>
+            <router-link to="/login">Login</router-link>
         </p>
     </div>
 </template>

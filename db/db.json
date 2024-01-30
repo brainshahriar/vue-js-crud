@@ -1,12 +1,6 @@
 {
   "users": [
     {
-      "id": "5f33",
-      "name": "shahriar",
-      "email": "shahriar@gmail.com",
-      "password": "123456"
-    },
-    {
       "id": "3fa2",
       "name": "shahriar",
       "email": "shahriar@gmail.com",
@@ -53,6 +47,44 @@
       "name": "sdasd",
       "email": "asdas",
       "password": "asdasd"
+    },
+    {
+      "id": "7584",
+      "name": "asdasd",
+      "email": "asdas",
+      "password": "asdsa"
+    },
+    {
+      "id": "41f8",
+      "name": "sadsa",
+      "email": "asdasd",
+      "password": "asdasd"
+    }
+  ],
+  "restaurant": [
+    {
+      "id": "8d7e",
+      "name": "KFC",
+      "address": "Australia",
+      "contact": "013122223"
+    },
+    {
+      "id": "fc39",
+      "name": "KFC",
+      "address": "Australia",
+      "contact": "013122223"
+    },
+    {
+      "id": "3f15",
+      "name": "KFC",
+      "address": "Australia",
+      "contact": "013122223"
+    },
+    {
+      "id": "2da3",
+      "name": "KFC",
+      "address": "Australia",
+      "contact": "013122223"
     }
   ]
 }

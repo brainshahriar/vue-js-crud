@@ -3,6 +3,7 @@
 </style>
 
 <script>
+import axios from "axios";
 export default {
     name: 'LoginPage',
     data() {
@@ -12,13 +13,20 @@ export default {
         }
     },
     methods: {
-        // async login(){
-        //     const login = await axios.post
-        // }
+        async login(){
+            const result = await axios.get(`http://localhost:3000/users?email=${this.email}&password=${this.password}`);
+            if(this.password!==result?.data[0]?.password){
+                alert('Password is incorrect');
+            }
+            if(result.status==200 && result.data.length>0){
+                localStorage.setItem('user-info',JSON.stringify(result.data[0]))
+                this.$router.push({ name: 'HomePage' });
+            }
+        }
     },
     mounted() {
         let user = localStorage.getItem('user-info');
-        if (!user) {
+        if (user) {
             this.$router.push({ name: 'HomePage' });
         }
     }
@@ -33,7 +41,7 @@ export default {
         <input type="password" v-model="password" placeholder="Enter your password">
         <button v-on:click="login()">Login</button>
         <p>
-            <router-link to="/sign-up">Login</router-link>
+            <router-link to="/sign-up">Sign Up</router-link>
         </p>
     </div>
 </template>
