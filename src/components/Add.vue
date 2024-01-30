@@ -4,7 +4,7 @@
 
 <script>
 import Header from './Header.vue';
-
+import axios from 'axios';
 export default {
     name: 'AddPage',
     data(){
@@ -17,8 +17,12 @@ export default {
         }
     },
     methods: {
-        register(){
-            console.log(this.restaurant);
+        async register(){
+            const result = await axios.post('http://localhost:3000/restaurant',this.restaurant);
+            if(result.status==201) {
+                alert('Successfully created');
+                this.$router.push({ name: 'HomePage' });
+            }
         }
     },
     components:{
